@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Silkscreen&display=swap');
+        header{
+            background-color: #f1f1f1;
+            width: 200px;
+            height: 100%;
+            margin-top: -10px;
+            margin-left: -10px;
+            box-shadow: 0px 8px 20px 0px  rgb(109, 109, 109);
+            position: fixed;
+        }
+        .cont{
+            text-align: left;
+            position: relative;
+            top: 25px;
+            left: 20px;
+            transition: 0.5s;
+            &::after {
+                position: absolute;
+                content: "";
+                top: 70%;
+                left: 0;
+                width: 60%;
+                height: 0px;
+                transform: scaleX(0);
+                transform: scaleY(0);
+                transform-origin: right;
+                transition: transform 0.5s;
+            }
+
+            &:hover::after {
+                transform: scaleX(1);
+                transform: scaleY(1);
+                transform-origin: left;
+            } 
+        }
+        #foto{
+            width: 150px;
+        }
+
+        a{
+            font-weight: bold;
+            position: relative;
+            display: block;
+            padding: 4px 0;
+            color: rgb(69, 69, 69);
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: 0.5s; 
+            &::after {
+                position: absolute;
+                content: "";
+                top: 90%;
+                left: 0;
+                width: 60%;
+                height: 1px;
+                background: #16405b;
+                transform: scaleX(0);
+                transform: scaleY(0);
+                transform-origin: right;
+                transition: transform 0.5s;
+            }
+            &:hover {
+                color: #16405b;
+            }
+            &:hover::after {
+                transform: scaleX(1);
+                transform: scaleY(1);
+                transform-origin: left;
+            }    
+        }
+        nav{
+            display: flex;
+            align-items: left;
+            align-content: left;
+            text-align: left;
+            font-size: 80%;
+            position: absolute;
+            left: -10px;
+        }
+        li{        
+            position: relative;
+            top: 180px;
+        }
+        ul{
+            height: 30px;
+            margin-left: -15px;
+        }
+
+        .dropbtn {
+            padding-top: 10px;
+            margin-left: -40px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            color:  rgb(69, 69, 69);
+            transition: 0.5s;
+            &::after {
+                position: absolute;
+                content: "";
+                top: 70%;
+                left: 0;
+                width: 60%;
+                height: 1px;
+                background: #16405b;
+                transform: scaleX(0);
+                transform: scaleY(0);
+                transform-origin: right;
+                transition: transform 0.5s;
+            }
+
+            &:hover {
+                color: #16405b;
+            }
+
+            &:hover::after {
+                transform: scaleX(1);
+                transform: scaleY(1);
+                transform-origin: left;
+            }  
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0px 8px 20px 0px  rgb(109, 109, 109);
+            z-index: 1;
+            top: 42px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: 0.5s;
+            &::after {
+                position: absolute;
+                content: "";
+                top: 70%;
+                left: 0;
+                width: 60%;
+                height: 0px;
+                transform: scaleX(0);
+                transform: scaleY(0);
+                transform-origin: right;
+                transition: transform 0.5s;
+            }
+
+            &:hover::after {
+                transform: scaleX(1);
+                transform: scaleY(1);
+                transform-origin: left;
+            }
+        }
+
+        .dropdown a:hover {background-color: #ddd;}
+
+        .show {display: block;}
+    </style>
+</head>
+<body>
+    <header>
+        <a href="main2.html" class="cont"> <img src="g453.png" id="foto"> </a>  
+        <nav id="menu">      
+            <li>
+                <ul> <a href="sobreStem.html"> SOBRE STEAM </a> </ul>
+                <ul> <a href="realidad.html"> SOBRE REALIDAD AUMENTADA </a> </ul>
+                <ul> 
+                    <div class="dropdown">
+                        <ul onclick="myFunction()" class="dropbtn">EQUIPOS</ul>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="equipo1.html">GRUPO 1</a>
+                            <a href="equipo2.html">GRUPO 2</a>
+                            <a href="equipo3.html">GRUPO 3</a>
+                            <a href="equipo4.html">GRUPO 4</a>
+                            <a href="equipo5.html">GRUPO 5</a>
+                        </div>
+                    </div> 
+                </ul>
+                <ul> <a href="step.html"> STEP BY STEP </a> </ul>
+                <ul> <a href="sobreNos.html" id="te"> SOBRE NOSOTROS </a> </ul>
+            </li>
+        </nav>    
+    </header>
+    
+
+
+    <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+    </script>
+
+</body>
+</html>
